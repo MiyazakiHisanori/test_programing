@@ -1,7 +1,5 @@
 import random
 
-
-
 score = 0
 out_count = 0
 hit_count = 0
@@ -77,7 +75,7 @@ def Base_on_ball(score,runner):
     return score,runner
 
 
-def Runner_display(runner):
+def Runner_display(runner): #ランナー表示
     print("")
    
     if runner[1] == 0:
@@ -144,7 +142,7 @@ def Runner_display(runner):
             print("    　▽    ")  
 
 
-def Out_count_display(out_count):
+def Out_count_display(out_count): #アウトカウント表示
     
     print("out:", end="")
     
@@ -169,7 +167,9 @@ print("""
       
       ３アウトで終了
       
-      チェンジは未実装
+      （チェンジは未実装、ランダムで２塁打、併殺など追加予定）
+      
+      
       """)
 
 while out_count <= 2:
