@@ -13,7 +13,7 @@ pitching_name = [None,"直球","変化球","ボール球"]
 
 runner = [None,0,0,0] #左から　ダミー、１塁、２塁、３塁　ランナーいる場合数値を１に
 
-def Homerun(score,runner):
+def Homerun(score,runner):#ホームラン処理関数
     
     homerun_category = ["none",
                         "★　ソロホームラン!  + 1 点　★","★　2ランホームラン!  + 2 点　★",
@@ -39,7 +39,7 @@ def Homerun(score,runner):
     
     
 
-def Hit(score,runner):
+def Hit(score,runner):#　ヒット処理関数
     
     if runner[3] == 1:#3塁にランナーいる場合得点
         score += 1
@@ -60,7 +60,7 @@ def Hit(score,runner):
 
     
 
-def Base_on_ball(score,runner):
+def Base_on_ball(score,runner):# 四球処理関数
     
     if runner[3] == 1:#3塁にランナーいる場合得点
         score += 1
@@ -77,7 +77,7 @@ def Base_on_ball(score,runner):
     return score,runner
 
 
-def Runner_display(runner):
+def Runner_display(runner):# ランナー表示関数
     print("")
    
     if runner[1] == 0:
@@ -144,7 +144,7 @@ def Runner_display(runner):
             print("    　▽    ")  
 
 
-def Out_count_display(out_count):
+def Out_count_display(out_count):#アウトカウント表示関数
     
     print("out:", end="")
     
@@ -153,7 +153,7 @@ def Out_count_display(out_count):
     
     print("")
 
-def Result(score,hit_count,homerun_count):
+def Result(score,hit_count,homerun_count):#結果表示関数
     
     print("\n試合終了")
     print("成績")
@@ -182,7 +182,7 @@ print("""
       
       「h」　入力でちょっとしたヒントを表示します。 
       """)
-
+      
 hint = """
 ～ ヒント ～
                 
@@ -214,7 +214,6 @@ while out_count <= 2:
     batting_choise = input("バッティングコマンドを選んでください　（1:強振　2:軽打　3:見送る）\n")
     
     if batting_choise == 'h': #「h」入力でヒント表示
-       
         print(hint)
         continue
     
