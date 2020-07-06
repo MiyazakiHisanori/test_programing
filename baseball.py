@@ -183,11 +183,7 @@ print("""
       「h」　入力でちょっとしたヒントを表示します。 
       """)
 
-while out_count <= 2:
-    batting_choise = input("バッティングコマンドを選んでください　（1:強振　2:軽打　3:見送る）\n")
-    
-    if batting_choise == 'h': #「h」入力でヒント表示
-        hint = """
+hint = """
 ～ ヒント ～
                 
     強振　→　「直球」に強く、ホームランが打てます。
@@ -212,7 +208,13 @@ while out_count <= 2:
         
                 
 ～ ヒント　終わり ～
-                """
+"""
+
+while out_count <= 2:
+    batting_choise = input("バッティングコマンドを選んでください　（1:強振　2:軽打　3:見送る）\n")
+    
+    if batting_choise == 'h': #「h」入力でヒント表示
+       
         print(hint)
         continue
     
