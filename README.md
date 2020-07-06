@@ -11,5 +11,5 @@
 <br>
 
 ### 実行方法<br>
-cmdでbaseball.pyファイルのパスに移動後<br>
-「python baseball.py」と入力
+1. cmdでbaseball.pyファイルのパスに移動<br>
+2. 「python baseball.py」と入力
