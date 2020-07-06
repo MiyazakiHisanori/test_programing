@@ -10,6 +10,6 @@
 
 <br>
 
-実行方法<br>
+### 実行方法<br>
 cmdでbaseball.pyファイルのパスに移動後<br>
 「python baseball.py」と入力
