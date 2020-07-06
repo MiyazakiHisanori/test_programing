@@ -11,7 +11,7 @@ batting_name  = [None,"強振","軽打","見送る"]
 pitching_name = [None,"直球","変化球","ボール球"]
 
 
-runner = [None,0,0,0] #左から　ダミー、１塁、２塁、３塁　ランナーいる場合数値を１に
+runner = [None,0,0,0] #左から　ダミー、1塁、2塁、3塁　ランナーいる場合数値を1に
 
 def Homerun(score,runner):#ホームラン処理関数
     
