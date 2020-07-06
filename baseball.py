@@ -1,5 +1,7 @@
 import random
 
+
+
 score = 0
 out_count = 0
 hit_count = 0
@@ -75,7 +77,7 @@ def Base_on_ball(score,runner):
     return score,runner
 
 
-def Runner_display(runner): #ランナー表示
+def Runner_display(runner):
     print("")
    
     if runner[1] == 0:
@@ -142,7 +144,7 @@ def Runner_display(runner): #ランナー表示
             print("    　▽    ")  
 
 
-def Out_count_display(out_count): #アウトカウント表示
+def Out_count_display(out_count):
     
     print("out:", end="")
     
@@ -150,6 +152,15 @@ def Out_count_display(out_count): #アウトカウント表示
         print("●", end="")    
     
     print("")
+
+def Result(score,hit_count,homerun_count):
+    
+    print("\n試合終了")
+    print("成績")
+    print("得点: " + str(score) )
+    print("安打: " + str(hit_count))
+    print("ホームラン: " + str(homerun_count))
+    
     
     
 print("""
@@ -165,17 +176,49 @@ print("""
       
       ホームベースを踏むことができれば得点が入ります
       
-      ３アウトで終了
+      3アウトで終了
       
-      （チェンジは未実装、ランダムで２塁打、併殺など追加予定）
+      チェンジは未実装
       
-      
+      「h」　入力でちょっとしたヒントを表示します。 
       """)
 
 while out_count <= 2:
     batting_choise = input("バッティングコマンドを選んでください　（1:強振　2:軽打　3:見送る）\n")
-    batting_choise = int(batting_choise)
     
+    if batting_choise == 'h': #「h」入力でヒント表示
+        hint = """
+～ ヒント ～
+                
+    強振　→　「直球」に強く、ホームランが打てます。
+    　　　　　「軽打」、「ボール球」に弱く、アウトになってしまいます。
+                          
+    総評：ランナーが溜まった状態でホームランを打てば高得点が入りますが、
+        「直球」以外だとアウトになってしまうため、大味なコマンドです。
+        
+                           
+    軽打　→　 「変化球」に強く、安打が打てます。ランナーが3塁にいると、1点入ります。
+    　　　　　　「直球」に弱く、アウトになります。
+    　　　　　　「ボール球」はファールにすることができます。
+                           
+    総評：ホームランは打てませんが、アウトになる確率が1/3であるため、安定したコマンドです。
+    
+            
+    見送る　→　「直球」、「変化球」に弱く、アウトになります。
+    　　　　　　「ボール球」だと四球になり、ランナーが進みます。満塁時は、押し出しで1点が入ります。
+                            
+    総評：他のコマンドと比べると弱いです。
+    　　　　相手が「ボール球」を選んできそうな場面限定で有用です
+        
+                
+～ ヒント　終わり ～
+                """
+        print(hint)
+        continue
+    
+    
+    
+    batting_choise = int(batting_choise)
     print("")
 
     #pitching_choise = input("ピッチング　（1:直球　2:変化球　3:ボール球）\n")
@@ -186,7 +229,7 @@ while out_count <= 2:
     print("    "+"CPU:"+ pitching_name[pitching_choise])
     
         
-
+    
     
     if batting_choise == 1: #「強振」はホームラン打てるが「直球」でなければアウト
         if pitching_choise == 1:
@@ -260,9 +303,4 @@ while out_count <= 2:
     print("___________\n")
     
 
-print("\n試合終了")
-
-print("成績")
-print("得点: " + str(score) )
-print("安打: " + str(hit_count))
-print("ホームラン: " + str(homerun_count))
+Result(score,hit_count,homerun_count)
