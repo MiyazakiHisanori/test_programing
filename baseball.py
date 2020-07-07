@@ -1,3 +1,20 @@
+"""
+ファイル名：baseball.py
+
+『　野球ゲーム監督プレイ（仮）　』
+
+概要： 
+バッターとなって３つのコマンドを選びます。
+バッティングは「強振」、「軽打」、「見送る」
+ピッチングは「直球」、「変化球」、「ボール球」  コマンドを使用できます
+相性が良ければ　「安打」、「ホームラン」が打てて
+ホームベースを踏むことができれば得点が入ります
+3アウトで終了
+チェンジは未実装
+「h」　入力でちょっとしたヒントを表示します。 
+
+"""
+
 import random
 
 
@@ -11,9 +28,10 @@ batting_name  = [None,"強振","軽打","見送る"]
 pitching_name = [None,"直球","変化球","ボール球"]
 
 
-runner = [None,0,0,0] #左から　ダミー、1塁、2塁、3塁　ランナーいる場合数値を1に
+runner = [None,0,0,0] #左から　ダミー、１塁、２塁、３塁　ランナーいる場合数値を１に
 
-def Homerun(score,runner):#ホームラン処理関数
+#ホームラン処理関数
+def homerun(score,runner):
     
     homerun_category = ["none",
                         "★　ソロホームラン!  + 1 点　★","★　2ランホームラン!  + 2 点　★",
@@ -38,8 +56,8 @@ def Homerun(score,runner):#ホームラン処理関数
     
     
     
-
-def Hit(score,runner):#　ヒット処理関数
+#ヒット処理関数
+def hit(score,runner):
     
     if runner[3] == 1:#3塁にランナーいる場合得点
         score += 1
@@ -59,8 +77,8 @@ def Hit(score,runner):#　ヒット処理関数
     return score,runner
 
     
-
-def Base_on_ball(score,runner):# 四球処理関数
+#四球処理関数
+def base_on_ball(score,runner):
     
     if runner[3] == 1:#3塁にランナーいる場合得点
         score += 1
@@ -76,8 +94,8 @@ def Base_on_ball(score,runner):# 四球処理関数
     
     return score,runner
 
-
-def Runner_display(runner):# ランナー表示関数
+#ランナー表示関数
+def runner_display(runner):
     print("")
    
     if runner[1] == 0:
@@ -86,30 +104,30 @@ def Runner_display(runner):# ランナー表示関数
             if runner [3] == 0:
                 print("     ◇     ")
                 print("            ")
-                print("◇       　◇")
-                print("          ")   
-                print("    　▽    ")
+                print("◇      　 ◇")
+                print("          ")
+                print("     ▽    ")
                 
             else:                    
                 print("     ◇     ")
                 print("            ")
                 print("◆       　◇")
                 print("          ")   
-                print("    　▽    ")
+                print("     ▽    ")
                 
         elif runner[3] == 0:
             print("     ◆     ")
             print("            ")
             print("◇       　◇")
             print("          ")   
-            print("    　▽    ")
+            print("     ▽    ")
             
         else:
             print("     ◆     ")
             print("            ")
             print("◆       　◇")
             print("          ")   
-            print("    　▽    ")
+            print("     ▽    ")
              
 
     if runner[1] == 1:
@@ -120,13 +138,13 @@ def Runner_display(runner):# ランナー表示関数
                 print("            ")
                 print("◇       　◆")
                 print("          ")   
-                print("    　▽    ")
+                print("     ▽    ")
             else:
                 print("     ◇     ")
                 print("            ")
                 print("◆       　◆")
                 print("          ")                       
-                print("    　▽    ")
+                print("     ▽    ")
                 
                 
         elif runner[3] == 0:
@@ -134,17 +152,17 @@ def Runner_display(runner):# ランナー表示関数
             print("            ")
             print("◇       　◆")
             print("          ")   
-            print("    　▽    ")    
+            print("    ▽    ")    
         
         else:
             print("     ◆     ")
             print("            ")
             print("◆       　◆")
             print("          ")   
-            print("    　▽    ")  
+            print("     ▽    ")  
 
-
-def Out_count_display(out_count):#アウトカウント表示関数
+#アウトカウント表示関数
+def out_count_display(out_count):
     
     print("out:", end="")
     
@@ -153,7 +171,8 @@ def Out_count_display(out_count):#アウトカウント表示関数
     
     print("")
 
-def Result(score,hit_count,homerun_count):#結果表示関数
+#結果表示関数
+def result_display(score,hit_count,homerun_count):
     
     print("\n試合終了")
     print("成績")
@@ -210,7 +229,7 @@ hint = """
 ～ ヒント　終わり ～
 """
 
-while out_count <= 2:
+while out_count <= 2: #3アウトで終了
     batting_choise = input("バッティングコマンドを選んでください　（1:強振　2:軽打　3:見送る）\n")
     
     if batting_choise == 'h': #「h」入力でヒント表示
@@ -220,7 +239,7 @@ while out_count <= 2:
     
     
     batting_choise = int(batting_choise)
-    print("")
+    print() #改行
 
     #pitching_choise = input("ピッチング　（1:直球　2:変化球　3:ボール球）\n")
     #pitching_choise = int(pitching_choise)
@@ -237,7 +256,7 @@ while out_count <= 2:
             print("バッティング勝ち")
             result = "ホームラン"
             print("結果:" + result)
-            score,runner = Homerun(score,runner)
+            score,runner = homerun(score,runner)
             print("\n得点:" + str(score))
         
     
@@ -267,7 +286,7 @@ while out_count <= 2:
             print("バッティング勝ち")
             result = "安打"
             print("結果:" + result)
-            score,runner = Hit(score,runner)
+            score,runner = hit(score,runner)
             print("\n得点:" + str(score))
         
         if pitching_choise == 3: #「軽打」　と　「ボール球」　の判定どうする？　→ファールにしよう
@@ -294,14 +313,14 @@ while out_count <= 2:
         if pitching_choise == 3:
             print("バッティング勝ち")
             result = "四球"
-            score,runner = Base_on_ball(score,runner)
+            score,runner = base_on_ball(score,runner)
             print("結果:" + result)
             print("\n得点:" + str(score))
     
     print("___________")
-    Out_count_display(out_count)
-    Runner_display(runner)
+    out_count_display(out_count)
+    runner_display(runner)
     print("___________\n")
     
 
-Result(score,hit_count,homerun_count)
+result_display(score,hit_count,homerun_count) #試合結果表示
