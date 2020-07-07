@@ -1,5 +1,6 @@
 """
-ファイル名：baseball.py ver:1.0
+ファイル名：baseball.py 
+ver:1.0
 
 『　野球ゲーム監督プレイ（仮）　』
 
