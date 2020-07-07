@@ -24,7 +24,7 @@
 
 """
 
-import random #ランダムな整数を作成
+import random #ランダムな整数を生成
 
 score         = 0   #得点
 out_count     = 0   #アウトカウント
