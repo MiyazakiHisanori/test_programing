@@ -23,20 +23,17 @@ ver:1.0
 
 """
 
-import random
+import random #ランダムな整数
 
-
-
-score = 0
-out_count = 0
-hit_count = 0
-homerun_count = 0
+score         = 0   #得点
+out_count     = 0   #アウトカウント
+hit_count     = 0   #ヒットカウント
+homerun_count = 0   #ホームランカウント
+runner = [None,0,0,0] #左から　ダミー、１塁、２塁、３塁　ランナーいる場合数値を１に
 
 batting_name  = [None,"強振","軽打","見送る"]
 pitching_name = [None,"直球","変化球","ボール球"]
 
-
-runner = [None,0,0,0] #左から　ダミー、１塁、２塁、３塁　ランナーいる場合数値を１に
 
 #ホームラン処理関数
 def homerun(score,runner):
@@ -44,7 +41,7 @@ def homerun(score,runner):
     homerun_category = ["none",
                         "★　ソロホームラン!  + 1 点　★","★　2ランホームラン!  + 2 点　★",
                         "★　3ランホームラン!  + 3 点　★","★　満塁ホームラン!  + 4 点　★"]
-    
+ 
     runner_count = 0
     
     for i in runner:
