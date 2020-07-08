@@ -159,7 +159,7 @@ def runner_display(runner):
             print("            ")
             print("◇       　◆")
             print("          ")   
-            print("    ▽    ")    
+            print("     ▽    ")    
         
         else:
             print("     ◆     ")
