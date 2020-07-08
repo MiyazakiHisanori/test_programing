@@ -25,7 +25,7 @@ ver:1.0
 
 """
 
-import random #ランダムな整数を生成
+import random #ランダムモジュールのロード
 
 score         = 0   #得点
 out_count     = 0   #アウトカウント
@@ -248,9 +248,8 @@ while out_count <= 2: #3アウトで終了
     batting_choise = int(batting_choise)
     print() #改行
 
-    #pitching_choise = input("ピッチング　（1:直球　2:変化球　3:ボール球）\n")
-    #pitching_choise = int(pitching_choise)
-    pitching_choise = random.randint(1,3)
+    
+    pitching_choise = random.randint(1,3) #コンピュータがランダムにコマンドを選択
     
     print("自分:"+ batting_name[batting_choise], end="")
     print("    "+"CPU:"+ pitching_name[pitching_choise])
